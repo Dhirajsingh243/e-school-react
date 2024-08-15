@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './css/login.css'; // Ensure the correct path to your CSS file
 import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
 import axios from 'axios';
+import { API_ROUTES } from '../../config/api.js';
+import Dashboard from '../dashboard.jsx';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -14,12 +16,16 @@ const Login = () => {
         setError('');
 
         try {
-            const response = await axios.post('https://yourapi.com/login', {
+            const response = await axios.post(API_ROUTES.LOGIN, { // Using the correct API route
                 email,
                 password,
             });
 
             if (response.status === 200) {
+                // const token = response.data.token; // Assuming the API returns a token
+                // if (token) {
+                //     localStorage.setItem('authToken', token); // Store token in local storage
+                // }
                 // Assuming the API returns a success message or token
                 navigate('/dashboard'); // Use navigate to redirect
             } else {

@@ -1,0 +1,28 @@
+.header-container {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-nav a:hover {
+    text-decoration: underline;
+}
