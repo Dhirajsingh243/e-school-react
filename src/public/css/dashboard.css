@@ -1,44 +1,10 @@
-.dashboard-container {
-    padding: 20px;
-}
-
-.dashboard-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.dashboard-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-}
-
-.user-info, .dashboard-stats, .dashboard-actions {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.dashboard-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.dashboard-button:hover {
-    background-color: #45a049;
-}
+/* Custom styles for the dashboard */
 
 h2 {
     margin-bottom: 10px;
+}
+
+/* Optional: Add custom hover effects for the buttons */
+.btn-success:hover {
+    background-color: #45a049;
 }
