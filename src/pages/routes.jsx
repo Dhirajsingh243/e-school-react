@@ -5,6 +5,7 @@ import Dashboard from './dashboard.jsx';
 import Admin from './admin.jsx';
 import AddUser from './userModule/addUser.jsx';
 import Edituser from './userModule/editUser.jsx'
+import ForgetPassword from './userModule/forgetPassword.jsx';
 
 // Assume you have a dashboard component
 
@@ -17,6 +18,8 @@ const AppRoutes = () => {
             <Route path="/admin" element={<Admin/>} />
             <Route path="/addUser" element={<AddUser />} />
             <Route path="/editUser" element={<Edituser />} />
+            <Route path="/forgetPassword" element={<ForgetPassword />} />
+            
           
             <Route path="*" element={<h1>404: Page Not Found</h1>} />
         </Routes>

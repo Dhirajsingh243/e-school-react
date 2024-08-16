@@ -1,13 +1,15 @@
+/* Custom footer styles if needed */
+
 .footer-container {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    /* This is now handled by Bootstrap's classes */
 }
 
 .footer-content p {
-    margin: 0;
+    /* Already handled by Bootstrap, but you can add any custom styling if necessary */
+}
+
+/* Example of custom hover effect if needed */
+.footer-container p:hover {
+    color: #ffffff; /* Keep text white on hover */
+    text-decoration: underline; /* Optional underline effect on hover */
 }
