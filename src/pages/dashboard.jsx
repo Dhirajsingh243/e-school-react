@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../public/css/dashboard.css'
+import Header from './elements/header.jsx';
 
 const Dashboard = () => {
+    <Header/>
     // const [userInfo, setUserInfo] = useState(null);
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(null);
@@ -33,6 +35,7 @@ const Dashboard = () => {
     // }
 
     return (
+        
         <div className="dashboard-container">
             <header className="dashboard-header">
                 <h1>Welcome to Your Octowl-School</h1>
