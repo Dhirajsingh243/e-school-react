@@ -1,33 +1,52 @@
 import React, { useState } from 'react';
-import './css/login.css'; // Ensure the correct path to your CSS file
-import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_ROUTES } from '../../config/api.js';
-import Dashboard from '../dashboard.jsx';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock,faEye, faKey , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [user_id, setuserId] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate(); 
 
+    // Define hardcoded credentials
+    const hardcodeduserId = '12345';
+    const hardcodedPassword = 'admin123';
+    const togglePasswordVisibility = () => {
+        setShowPassword(prevState => !prevState);
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
-        try {
-            const response = await axios.post(API_ROUTES.LOGIN, { // Using the correct API route
-                email,
-                password,
-            });
+        // Trim the input values to avoid issues with extra spaces
+        const trimmedUserId = user_id.trim();
+        const trimmedPassword = password.trim();
 
+        // Debugging logs
+        // console.log('Entered User ID:', trimmedUserId);
+        // console.log('Entered Password:', trimmedPassword);
+
+        // Check if the entered credentials match the hardcoded ones
+        // if (trimmedUserId === hardcodeduserId && trimmedPassword === hardcodedPassword) {
+        //     console.log('Hardcoded credentials matched. Redirecting to dashboard.');
+        //     navigate('/dashboard');
+        //     return; // Skip API call since credentials are hardcoded
+        // }
+
+        try {
+            const response = await axios.post(API_ROUTES.LOGIN, {
+                user_id: trimmedUserId,
+                password: trimmedPassword,
+            });
+            console.log(response,"response");
             if (response.status === 200) {
-                // const token = response.data.token; // Assuming the API returns a token
-                // if (token) {
-                //     localStorage.setItem('authToken', token); // Store token in local storage
-                // }
-                // Assuming the API returns a success message or token
-                navigate('/dashboard'); // Use navigate to redirect
+                navigate('/dashboard');
+                localStorage.setItem('token', response.data.token);
             } else {
                 setError(response.data.message || 'Login failed. Please try again.');
             }
@@ -41,28 +60,50 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
-            <h2 className="login-heading">Login</h2>
-            <form onSubmit={handleSubmit} className="login-form">
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="login-input"
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="login-input"
-                />
-                {error && <div className="login-error">{error}</div>}
-                <button type="submit" className="login-button">Submit</button>
-            </form>
+        <div className="container d-flex justify-content-center align-items-center vh-100">
+            <div className="card p-4 shadow-lg" style={{ maxWidth: '400px', width: '100%' }}>
+                <h2 className="text-center mb-4"><b> STUDENT LOGIN</b></h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="user_id" className="form-label"><FontAwesomeIcon icon={faUser} /> <b>USER-ID</b></label>
+                        <input
+                            type="text"
+                            id="user_id"
+                            placeholder='USER-ID'
+                            className="form-control"
+                            value={user_id}
+                            onChange={(e) => setuserId(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">
+                            <FontAwesomeIcon icon={faLock} /><b> Password</b> 
+                        </label>
+                        <div className="input-group">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="password"
+                                placeholder="Password"
+                                className="form-control"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            <span className="input-group-text" onClick={togglePasswordVisibility} style={{ cursor: 'pointer' }}>
+                                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                            </span>
+                        </div>
+                    </div>
+                    {error && <div className="alert alert-danger text-center">{error}</div>}
+                    <button type="submit" className="btn btn-primary w-100"><FontAwesomeIcon icon={faLock} /> Submit</button>
+                    <div className="text-center mt-3">
+                        <h6 className="text-primary cursor-pointer" onClick={() => navigate('/forgetPassword')}>
+                        <FontAwesomeIcon icon={faKey} /> Forget Password
+                        </h6>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

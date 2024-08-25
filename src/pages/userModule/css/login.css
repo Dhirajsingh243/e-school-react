@@ -1,11 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.login-main
+{
+    background-color: rgb(225, 220, 220)
+}
 .login-container {
     width: 100%;
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10 0 100px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
 }
 
 .login-heading {
@@ -30,7 +39,7 @@
 
 .login-button {
     padding: 10px;
-    background-color: #28a745;
+    background-color: #1c97ce;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -40,11 +49,22 @@
 }
 
 .login-button:hover {
-    background-color: #218838;
+    background-color: black;
 }
 
 .login-error {
     color: #ff4d4f;
     margin-bottom: 15px;
+    text-align: center;
+}
+
+.forget-button {
+    padding: 5px;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     text-align: center;
 }

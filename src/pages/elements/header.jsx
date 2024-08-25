@@ -1,19 +1,35 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/header.css'; // Ensure you have the correct path for the CSS file
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
     return (
-        <header className="header-container">
-            <div className="header-content">
-                <h1>Octowl-School</h1>
+        <header className="bg-primary text-white p-3">
+            <div className="container d-flex justify-content-between align-items-center">
+                <h1 className="m-0">Octowl-School</h1>
                 <nav>
-                    <ul className="header-nav">
-                        <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/profile">Attendence</a></li>
-                        <li><a href="/profile">Class</a></li>
-                        <li><a href="/profile">Reports</a></li>
-                        <li><a href="/admin">Admin</a></li>
-                        <li><a href="/logout">Logout</a></li>
+                    <ul className="nav">
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/dashboard"><b>DASHBOARD</b></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/profile"><b>ATTENDENCE</b></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/class"><b>CLASS</b></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/reports"><b>REPORTS</b></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/admin"><b>ADMIN</b></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/logout">
+                                <FontAwesomeIcon icon={faSignOutAlt} />
+                            </a>                   
+                        </li>
                     </ul>
                 </nav>
             </div>

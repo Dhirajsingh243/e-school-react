@@ -26,7 +26,7 @@ const Admin = () => {
                 <h3>User Module</h3>
                 <ul>
                     <li onClick={(e) => handleNavigation('addUser', e)}>Add User</li>
-                    <li onClick={(e) => handleNavigation('editUser', e)}>Edit User</li>
+                    <li onClick={(e) => handleNavigation('userList', e)}>Edit User</li>
                     <li onClick={(e) => handleNavigation('uploadUsers', e)}>Upload Users</li>
                 </ul>
             </div>
