@@ -4,6 +4,6 @@ export const BASE_URL = 'https://e-learning.test/api'; // Replace with your actu
 // Define all your API routes here
 export const API_ROUTES = {
     LOGIN: `${BASE_URL}/v1/login`,
-    // POST_DATA: `${BASE_URL}/api/`,
+    USERLIST : `${BASE_URL}/users/list_user`,
     // Add more API routes as needed
 };

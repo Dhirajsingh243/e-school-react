@@ -6,6 +6,7 @@ import Admin from './admin.jsx';
 import AddUser from './userModule/addUser.jsx';
 import Edituser from './userModule/editUser.jsx'
 import ForgetPassword from './userModule/forgetPassword.jsx';
+import UserList from './userModule/userList.jsx'
 
 // Assume you have a dashboard component
 
@@ -17,6 +18,7 @@ const AppRoutes = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/admin" element={<Admin/>} />
             <Route path="/addUser" element={<AddUser />} />
+            <Route path="/UserList" element={<UserList />} />
             <Route path="/editUser" element={<Edituser />} />
             <Route path="/forgetPassword" element={<ForgetPassword />} />
             
