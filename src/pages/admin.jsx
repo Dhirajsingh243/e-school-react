@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../public/css/admin.css'; // Ensure you have the correct path for the CSS file
+import { API_ROUTES } from '../config/api.js'
+import axios from 'axios';
 
 const Admin = () => {
     const navigate = useNavigate();
@@ -9,7 +11,21 @@ const Admin = () => {
         if (event) {
             event.stopPropagation(); // Prevent the parent onClick from firing
         }
-        navigate(`/${path}`); 
+        navigate(`/${path}`);
+    };
+    const userReport = async (event) => {
+        if (event) {
+            event.stopPropagation(); // Ensure propagation is stopped here too
+            console.log('User report triggered'); // Debug log
+            try {
+                const response = await axios.get(API_ROUTES.USER_REPORT);
+                console.log(response.data, "response");
+            } catch (error) {
+                console.error("Error fetching user report:", error);
+            }
+        } else {
+            console.warn("No event passed to userReport"); // Debug log
+        }
     };
 
     return (
@@ -43,7 +59,7 @@ const Admin = () => {
                 <ul>
                     <li onClick={(e) => handleNavigation('dailyReports', e)}>Daily Reports</li>
                     <li onClick={(e) => handleNavigation('weeklyReports', e)}>Weekly Reports</li>
-                    <li onClick={(e) => handleNavigation('monthlyReports', e)}>Monthly Reports</li>
+                    <li onClick={(e) => userReport(e)}>User Detils</li>                  
                 </ul>
             </div>
         </div>
