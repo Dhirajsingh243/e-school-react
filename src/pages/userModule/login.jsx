@@ -47,6 +47,7 @@ const Login = () => {
             if (response.status === 200) {
                 navigate('/dashboard');
                 localStorage.setItem('token', response.data.token);
+                localStorage.setItem('userId', response.data.userId);      
             } else {
                 setError(response.data.message || 'Login failed. Please try again.');
             }
@@ -65,7 +66,7 @@ const Login = () => {
                 <h2 className="text-center mb-4"><b> STUDENT LOGIN</b></h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
-                        <label htmlFor="user_id" className="form-label"><FontAwesomeIcon icon={faUser} /> <b>USER-ID</b></label>
+                        <label htmlFor="user_id" className="form-label"><FontAwesomeIcon icon={faUser} /> <b>STUDENT-ID</b></label>
                         <input
                             type="text"
                             id="user_id"
