@@ -1,8 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/header.css'; // Ensure you have the correct path for the CSS file
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import Logout from '../userModule/logout';
 const Header = () => {
     return (
         <header className="bg-primary text-white p-3">
@@ -26,9 +25,7 @@ const Header = () => {
                             <a className="nav-link text-white" href="/admin"><b>ADMIN</b></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white" href="/logout">
-                                <FontAwesomeIcon icon={faSignOutAlt} />
-                            </a>                   
+                            <Logout />                  
                         </li>
                     </ul>
                 </nav>
